@@ -1,11 +1,11 @@
 const Mongoose = require('mongoose');
-const DB = process.env.MONGODB_URI.toString();
+const DB = 'mongodb+srv://admin:admin@tsechatroomauth.bdpd4.mongodb.net/TSechatroom?retryWrites=true&w=majority'
 
 const connectDB = async () => {
-    await Mongoose.connect((DB, {
+    await Mongoose.connect(DB, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-    }))
+    })
     console.log('Database Connection Established')
 }
 
