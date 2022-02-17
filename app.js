@@ -9,7 +9,12 @@ const authRouter = require('./Auth/auth');
 
 
 const app = express();
-connectDB();
+const {adminAuth, userAuth} = require('./middleware/auth.js')
+
+connectDB()
+
+app.get('/admin', adminAuth, (req, res) => res.send('Admin route'));
+app.get('/basic', userAuth, (req, res) => res.send('User route'));
 
 app.use(cookieParser());
 app.use(logger('dev'));
